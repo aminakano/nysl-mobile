@@ -1,0 +1,280 @@
+/* without bootstrap */
+body {
+  margin:0 auto;
+  font-family: 'Open Sans', sans-serif !important;
+  color:#193019 !important;
+  width: 100%;
+}
+/* header */
+header {
+  background: #5DA449;
+  height: 15%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+}
+img{
+  width: 70px;
+  height:70px;
+  margin: 20px;
+}
+.logo {
+  width:20%;
+}
+.title{
+  width:80%;
+  padding-left: 2em;
+  display: flex;
+}
+.header-title {
+  font-size: 1.5em;
+}
+h1 {
+  font-family: 'Audiowide', cursive;
+  color: #484644;
+
+  align-self: center;
+}
+h2 {
+  padding:0.5em;
+  font-size: 2em;
+  font-weight: normal;
+}
+
+
+/* footer */
+footer {
+  height: 10%;
+  width:100%;
+  background: #5DA449;
+  position: fixed;
+  bottom:0;
+  display: flex;
+  justify-content: center;
+}
+footer div{
+  width:25%;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main */
+.bg-mask {
+  height: 100%;
+  background: rgba(190,211,197,0.5);
+}
+.container{
+  margin:0 auto;
+  padding: 30% 0 25% 0 !important;
+}
+.height {
+  height:30px ;
+  background:#9ca7a5;
+  color:white;
+  margin-bottom: 10%;
+  align-items: center;
+}
+.height p {
+  margin:0;
+}
+.text-center {
+  text-align: center;
+}
+.vs {
+    display: flex;
+    align-items: center;
+    font-size: 5em;
+    opacity: 0.8;
+}
+.shield-top {
+  width:120px;
+  height:120px;
+}
+.shieldbox {
+  display: flex;
+  justify-content: space-around;
+}
+/* game schedule */
+.schedule-search{
+  width:80%;
+  margin:0 auto;
+  /* margin-bottom:10%; */
+  background:#CFDDCD;
+  padding: 10% 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.schedule-search p{
+  text-align: left;
+  margin:0;
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+select {
+  width:80%;
+  height:3rem;
+  font-size: 1.2em;
+  background-color: white;
+  border-radius: 5px;
+  color:#193019;
+  font-family: 'Open Sans', sans-serif;
+  outline-color: #669966;
+}
+select:last-child{
+  padding-bottom:20%;
+}
+option {
+  font-size: 2em;
+}
+
+button {
+  width:80%;
+  height:3rem;
+  margin-top: 10%;
+  color: #283d28;
+  background:#84ad84;
+  border-radius: 10px;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  border:none;
+  box-shadow: 0 3px #669966;
+  outline: 0;
+  cursor: pointer;
+}
+button:active{
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+}
+
+/* result */
+.back {
+  align-self: flex-end;
+  width:30%;
+  margin:5%;
+
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
+/* table */
+table {
+  width:90%;
+  margin: 0 auto;
+  font-size: 0.7em;
+  border-spacing: 0;
+}
+table img {
+  height:60px;
+  width:60px;
+  margin:0;
+}
+table tr td {
+  border:none;
+}
+tr:nth-of-type(odd) {
+  /* background:#A1C7AF; */
+  background:#CFDDCD;
+}
+.width2 {
+  width:20%
+}
+.width1 {
+  width: 10%;
+}
+td {
+  text-align: center;
+  padding: 0;
+}
+
+/* results */
+.schedule-result {
+  margin-top:10%;
+  display: flex;
+  flex-direction: column;
+}
+.result-msg {
+  display: flex;
+  justify-content: space-between;
+}
+.noresults{
+  display: flex;
+  align-items: center;
+  margin-left:10%;
+  font-size: 1.3em;
+}
+/* locations */
+.accordion {
+  margin:0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-acc{
+  background:transparent;
+  border-top:1px solid #98cfa6;
+  border-bottom:1px solid #98cfa6;
+  border-radius: 2px;
+  cursor:pointer;
+  outline:none;
+  padding:0;
+  appearance:none;
+  width:98%;
+  display: block;
+  cursor: pointer;
+  background-color: #669966;
+  height: 2.2em;
+  line-height: 50px;
+  margin-top:0;
+  letter-spacing: normal;
+  font-size: 1.7em;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.embed {
+  background-color: #84ad84;
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  /* closed */
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  margin:0;
+  transition:
+    line-height .3s ease-out,
+    opacity     .1s linear,
+    visibility  .1s linear;
+}
+.embed iframe {
+  height: 0;
+}
+.embed.is-open{
+  padding-top: 13px;
+  padding-bottom: 13px;
+  line-height: 1.5;
+  opacity: 1;
+  visibility: visible;
+  transition:
+  line-height .3s ease-out,
+  opacity     .1s linear .1s,
+  visibility  .1s linear .1s;
+}
+.embed.is-open iframe {
+  height:300px;
+}

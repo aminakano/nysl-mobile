@@ -116,6 +116,13 @@ var app = new Vue({
       },
       openAccordion: function(id){
         document.getElementById(id).classList.toggle('is-open');
+      },
+      confirmMap: function(href){
+        if(confirm("Open in Map?")){
+          location.href = href;
+        }else {
+
+        }
       }
 
 

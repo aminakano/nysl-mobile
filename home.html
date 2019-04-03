@@ -38,7 +38,7 @@
           </div>
 
           <div class="text-center height" v-if="dataIsLoaded">
-            <p>{{object.games[0].date}} <a v-bind:src='locations.AJKatzenmeier.link'>@{{locations.AJKatzenmeier.name}}</a></p>
+            <p><span>{{object.games[0].date}}</span> <a v-bind:href='locations.AJKatzenmeier.link' v-on:click="confirmMap(href)">@{{locations.AJKatzenmeier.name}}</a></p>
 
           </div>
           <div class="shieldbox">
@@ -47,7 +47,7 @@
             <img v-bind:src="shields[1]" alt="Manhattan" class="shield-top">
           </div>
           <div class="text-center height" v-if="dataIsLoaded">
-            <p>{{object.games[1].date}} @{{object.games[1].location}}</p>
+            <p><span>{{object.games[1].date}}</span> <a v-bind:href='locations.Greenbay.link' v-on:click="confirmMap(href)">@{{object.games[1].location}}</a></p>
           </div>
 
         </div>
@@ -79,7 +79,7 @@
           <div class="result-msg">
             <div class="noresults"><p v-if='filterData ==0'>No results&nbsp;<i class="far fa-frown"></i><br>Try again!&nbsp;</p>
           </div>
-            <button type="button" name="button" class="back">Back<i class="fas fa-share arrow"></i></button>
+            <button type="button" name="button" class="back"><span>Back</span><i class="fas fa-share arrow"></i></button>
           </div>
           <table class="result-table">
             <tr v-for="game in filterData">

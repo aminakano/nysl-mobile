@@ -118,10 +118,12 @@ var app = new Vue({
         document.getElementById(id).classList.toggle('is-open');
       },
       confirmMap: function(href){
-        if(confirm("Open in Map?")){
+
+        var x = confirm("Open in Map?");
+        if(x == true){
           location.href = href;
         }else {
-
+          console.log("no");
         }
       }
 

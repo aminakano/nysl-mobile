@@ -5,6 +5,8 @@ body {
   color:#193019 !important;
   width: 100%;
 }
+
+
 /* header */
 header {
   background: #5DA449;
@@ -22,14 +24,19 @@ img{
   height:70px; */
   width: 5em;
   height:5em;
-  margin: 0.8em;
 }
 .logo {
   width:20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.5em;
 }
 .title{
   width:80%;
-  padding-left: 2em;
+  /* padding-left: 2em; */
+  /* margin-left: 2em; */
   display: flex;
 }
 .header-title {
@@ -74,7 +81,7 @@ footer div{
 }
 .container{
   margin:0 auto;
-  padding: 30% 0 25% 0 !important;
+  padding: 30% 0 25% 0 ;
 }
 .height {
   height:2.2em ;
@@ -88,7 +95,7 @@ footer div{
 .height p {
   margin:0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .height a {
@@ -96,6 +103,7 @@ footer div{
   font-size:1.2em;
   font-weight: bold;
   color:white;
+  margin: 0 0.8em;
 }
 .text-center {
   text-align: center;
@@ -113,6 +121,7 @@ footer div{
 .shieldbox {
   display: flex;
   justify-content: space-around;
+  padding-bottom:2%;
 }
 /* game schedule */
 .schedule-search{
@@ -293,4 +302,56 @@ td {
 }
 .embed.is-open iframe {
   height:300px;
+}
+
+/* media queries */
+/* and (max-width:771px)  */
+
+@media (min-width:600px) and (orientation: landscape)and (max-width:824px) {
+  header {
+    height: 20%;
+    background:rgba(93,164,73,0.9);
+  }
+  footer {
+    height: 15%;
+  }
+  .upcoming-games {
+    padding: 0 50px;
+  }
+  .text-center {
+    text-align: left;
+  }
+  .shieldbox {
+    width:70%;
+    margin: 0 15%;
+  }
+  /* .schedule-search:not(:last-child) {
+    display: flex;
+    flex-direction: row;
+  } */
+  .accordion {
+    display: grid;
+
+  }
+  /* iframe {
+    height:
+    width:
+  } */
+}
+@media (min-width:1000px){
+  header {
+    height:12%;
+  }
+  footer {
+    height: 10%;
+  }
+  .container {
+    padding-top:10%;
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+
 }

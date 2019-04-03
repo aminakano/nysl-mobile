@@ -38,7 +38,7 @@
           </div>
 
           <div class="text-center height" v-if="dataIsLoaded">
-            <p><span>{{object.games[0].date}}</span> <a v-bind:href='locations.AJKatzenmeier.link' v-on:click="confirmMap(href)">@{{locations.AJKatzenmeier.name}}</a></p>
+            <p><span>{{object.games[0].date}}</span> <a v-on:click="confirmMap(locations.AJKatzenmeier.link)">@{{locations.AJKatzenmeier.name}}</a></p>
 
           </div>
           <div class="shieldbox">
@@ -47,7 +47,7 @@
             <img v-bind:src="shields[1]" alt="Manhattan" class="shield-top">
           </div>
           <div class="text-center height" v-if="dataIsLoaded">
-            <p><span>{{object.games[1].date}}</span> <a v-bind:href='locations.Greenbay.link' v-on:click="confirmMap(href)">@{{object.games[1].location}}</a></p>
+            <p><span>{{object.games[1].date}}</span> <a v-on:click="confirmMap(locations.Greenbay.link)">@{{object.games[1].location}}</a></p>
           </div>
 
         </div>

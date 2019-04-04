@@ -16,9 +16,10 @@
 
 </head>
 
-<body class="">
-  <header class="">
-    <div class="logo">
+<body>
+  <div id="app">
+  <header>
+    <div class="logo" v-on:click="currentPage('landing')">
       <img src="nysl_logo.png" alt="nysl-official-logo">
     </div>
     <div class="title">
@@ -26,9 +27,8 @@
     </div>
   </header>
 
-  <div class="bg-mask">
-    <div class="container" id="app">
-      <div class="landing" id="landing">
+    <div class="container">
+      <div class="landing" id="landing" v-if="currentpage == 'landing'">
         <h2 class="text-center">Upcoming Games</h2>
         <div class="upcoming-games">
           <div class="shieldbox">
@@ -53,7 +53,7 @@
         </div>
       </div>
       <!-- schedule page -->
-      <div class="schedule">
+      <div class="schedule" v-if="currentpage == 'schedule'">
         <h2 class="text-center">Game Information</h2>
         <!-- search filter -->
         <div class="schedule-search" id="filter">
@@ -72,29 +72,31 @@
             <option value="all">Select Location</option>
             <option v-for="location in locations" v-bind:value="location.name">{{location.name}}</option>
           </select>
-          <button type="button" name="button" class="" v-on:click='filterGame()'>Find&nbsp;<i class="fas fa-search"></i></button>
-        </div>
-        <!-- schedule result -->
-        <div class="schedule-result">
-          <div class="result-msg">
-            <div class="noresults"><p v-if='filterData ==0'>No results&nbsp;<i class="far fa-frown"></i><br>Try again!&nbsp;</p>
-          </div>
-            <button type="button" name="button" class="back"><span>Back</span><i class="fas fa-share arrow"></i></button>
-          </div>
-          <table class="result-table">
-            <tr v-for="game in filterData">
-              <td class="width2"><img v-bind:src='teamsObject[game.team].shield' class="shield"></td>
-              <td class="width1">{{teamsObject[game.team].name}}</td>
-              <td class="width2">{{game.date}}<br>{{locations[game.location].name}}</td>
-              <td class="width1">{{teamsObject[game.opponent].name}}</td>
-              <td class="width2"><img v-bind:src='teamsObject[game.opponent].shield' class="shield"></td>
-            </tr>
-          </table>
+          <button type="button" name="button" class="" v-on:click="currentPage('result')">Find&nbsp;<i class="fas fa-search"></i></button>
         </div>
 
       </div>
+      <!-- schedule result -->
+      <div class="schedule-result" v-if="currentpage =='result'">
+        <h2 class="text-center">Game Information</h2>
+        <div class="result-msg">
+          <div class="noresults"><p v-if='filterData ==0'>No results&nbsp;<i class="far fa-frown"></i><br>Try again!&nbsp;</p>
+        </div>
+          <button type="button" name="button" class="back" v-on:click="currentPage('schedule')"><span>Back</span><i class="fas fa-share arrow"></i></button>
+        </div>
+        <table class="result-table">
+          <tr v-for="game in filterData">
+            <td class="width2"><img v-bind:src='teamsObject[game.team].shield' class="shield"></td>
+            <td class="width1">{{teamsObject[game.team].name}}</td>
+            <td class="width2">{{game.date}}<br>{{locations[game.location].name}}</td>
+            <td class="width1">{{teamsObject[game.opponent].name}}</td>
+            <td class="width2"><img v-bind:src='teamsObject[game.opponent].shield' class="shield"></td>
+          </tr>
+        </table>
+      </div>
+
       <!-- location -->
-      <div class="location-page">
+      <div class="location-page" v-if="currentpage == 'location'">
         <h2 class="text-center">Game Locations</h2>
         <div class="accordion" v-for='location in locations'>
 
@@ -102,21 +104,19 @@
             <p class="embed" v-bind:id="location.name"><iframe v-bind:src="location.map" width="360" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></p>
 
         </div>
-
-
       </div>
     </div>
-  </div>
-  <footer class="">
-    <div class="nav">
+
+  <footer>
+    <div class="nav" v-on:click="currentPage('landing')">
       <!-- Home -->
-      <i class="fas fa-home" style="font-size:40px; color:white;"></i>
+      <i class="fas fa-home" style="font-size:40px; color:white;" ></i>
     </div>
-    <div class="nav">
+    <div class="nav" v-on:click="currentPage('schedule')">
       <!-- Schedule -->
       <i class="far fa-futbol" style="font-size:40px;color:white;"></i>
     </div>
-    <div class="nav">
+    <div class="nav" v-on:click="currentPage('location')">
       <!-- Locations -->
       <i class="fas fa-map-marker-alt" style="font-size:40px;color:white;"></i>
     </div>
@@ -125,6 +125,7 @@
       <i class="fas fa-paper-plane " style="font-size:40px;color:white;"></i>
     </div>
   </footer>
+</div>
   <!-- vue -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script type="text/javascript" src="main.js"></script>

@@ -4,6 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif !important;
   color:#193019 !important;
   width: 100%;
+  background: rgba(190,211,197,0.5);
 }
 
 
@@ -77,11 +78,11 @@ footer div{
 /* main */
 .bg-mask {
   height: 100%;
-  background: rgba(190,211,197,0.5);
+
 }
 .container{
   margin:0 auto;
-  padding: 30% 0 25% 0 ;
+  padding: 25% 0 20% 0 ;
 }
 .height {
   height:2.2em ;
@@ -163,7 +164,7 @@ option {
 button {
   width:80%;
   height:3rem;
-  margin-top: 10%;
+  margin-top: 8%;
   color: #283d28;
   background:#84ad84;
   border-radius: 10px;
@@ -226,9 +227,11 @@ td {
 
 /* results */
 .schedule-result {
-  margin-top:10%;
   display: flex;
   flex-direction: column;
+}
+.schedule-result h2 {
+  margin-bottom: 0;
 }
 .result-msg {
   display: flex;
@@ -308,27 +311,71 @@ td {
 /* and (max-width:771px)  */
 
 @media (min-width:600px) and (orientation: landscape)and (max-width:824px) {
+
+  #app {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
   header {
-    height: 20%;
-    background:rgba(93,164,73,0.9);
+    display: none;
   }
   footer {
     height: 15%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    left:0;
+    height: 100%;
+    width:20%;
+  }
+  .container {
+    width:75%;
+    margin: 0;
+    padding:0;
+
+  }
+  h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+
+
   }
   .upcoming-games {
-    padding: 0 50px;
+
   }
   .text-center {
     text-align: left;
   }
   .shieldbox {
-    width:70%;
-    margin: 0 15%;
-  }
-  /* .schedule-search:not(:last-child) {
+    width:80%;
+    margin: 0 10%;
     display: flex;
-    flex-direction: row;
-  } */
+    justify-content: space-between;
+  }
+  .shield-top {
+    width:130px;
+    height:120px;
+  }
+  .height{
+    margin-bottom:2%;
+  }
+  .schedule-result {
+
+  }
+  .schedule-search {
+    padding:3% 0;
+
+  }
+  .schedule-search.button {
+    margin-top: 3%;
+  }
+  table {
+    font-size: 1em;
+  }
   .accordion {
     display: grid;
 
@@ -344,6 +391,7 @@ td {
   }
   footer {
     height: 10%;
+
   }
   .container {
     padding-top:10%;

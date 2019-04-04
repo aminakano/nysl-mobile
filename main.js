@@ -15,6 +15,7 @@ var app = new Vue({
       monthSelected: "all",
       teamSelected:"all",
       locationSelected:"all",
+      currentpage:"landing",
 
     },
     created:function(){
@@ -33,6 +34,7 @@ var app = new Vue({
             app.locations = app.object.locations;
             app.games = app.object.games;
             app.filterData = app.games;
+            // app.showlanding = true;
               app.teamName();
               app.shieldImg();
               app.teamInfo();
@@ -68,7 +70,7 @@ var app = new Vue({
       },
       filterGame: function(){
         app.filterData = [];
-          console.log("value",app.monthSelected, app.teamSelected, app.locationSelected)
+
           var b =app.games;
           for(let i=0; i<b.length; i++){
               // if(b[i].month == app.monthSelected && app.monthSelected != "" && app.teamsObject[b[i].team].name == app.teamSelected && app.teamSelected != "" && app.locations[b[i].location].name == app.locationSelected && app.locationSelected != ""){
@@ -82,27 +84,8 @@ var app = new Vue({
                     app.filterData.push(b[i]);
                   }
                 }
-              }else {
-                 app.show = true;
               }
-              /*
-              if(b[i].month == app.monthSelected && app.teamsObject[b[i].team].name == app.teamSelected && app.locations[b[i].location].name == app.locationSelected){
-               app.filterData.push(b[i]);
-              }
-                else if(((b[i].month == app.monthSelected && app.teamsObject[b[i].team].name == app.teamSelected && app.locationSelected == "all")|| (b[i].month == app.monthSelected && app.teamsObject[b[i].opponent].name == app.teamSelected && app.locationSelected == "all"))
-                ||((app.teamsObject[b[i].team].name == app.teamSelected && app.locations[b[i].location].name == app.locationSelected && app.monthSelected == "all")||(app.teamsObject[b[i].opponent].name == app.teamSelected && app.locations[b[i].location].name == app.locationSelected && app.monthSelected == "all"))
-                ||(app.locations[b[i].location].name == app.locationSelected && b[i].month == app.monthSelected && app.teamSelected == "all")){
-                  app.filterData.push(b[i]);
-                }
-                else if((b[i].month == app.monthSelected && app.teamSelected == "all" && app.locationSelected == "all")||((app.teamsObject[b[i].team].name == app.teamSelected && app.locationSelected == "all"&& app.monthSelected == "all")||(app.teamsObject[b[i].opponent].name == app.teamSelected && app.locationSelected == "all"&& app.monthSelected == "all"))||(app.locations[b[i].location].name == app.locationSelected && app.monthSelected == "all" && app.teamSelected == "all")){
-                app.filterData.push(b[i]);
 
-                }
-                else {
-                   app.show = true;
-                }
-
-                */
           }
       },
       storeMonth: function(event){
@@ -125,9 +108,24 @@ var app = new Vue({
         }else {
           console.log("no");
         }
+      },
+
+      currentPage: function(page){
+        app.currentpage = page;
+        if(app.currentpage == 'result'){
+          app.filterGame();
+        }
+        if(app.currentpage == 'schedule'){
+          app.locationSelected = 'all';
+          app.monthSelected = 'all';
+          app.teamSelected = 'all';
+        }
+
       }
 
+      },
 
 
-    }
+
+
 })
